@@ -16,7 +16,7 @@ def calculate_calories(age, gender, weight, height, activity):
 
     return round(bmr * activity_factor[activity], 2)
 
-def recommend_meals(calories_needed, diet_type, food_file="data/foods.csv"):
+def recommend_meals(calories_needed, diet_type, food_file="foods.csv"):
     """Recommend meals based on calorie needs and diet type."""
     df = pd.read_csv(food_file)
     if diet_type.lower() == "veg":
@@ -31,4 +31,5 @@ def recommend_meals(calories_needed, diet_type, food_file="data/foods.csv"):
             plan.append(row["Food"])
             total += row["Calories"]
     
+
     return plan
